@@ -1,0 +1,62 @@
+.login {
+	height: 100%;
+	&-laylod {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		&-main {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			z-index: 1;
+			height: 100%;
+
+			&-form {
+				padding: 20px 40px;
+				height: 440px;
+				width: 380px;
+				border: 1px solid white;
+				color: white;
+				h2 {
+					color: white;
+					font-size: 20px;
+					line-height: 80px;
+					text-align: center;
+					height: 80px;
+				}
+				input {
+					padding: 8px 10px;
+					width: 100%;
+					height: 40px;
+					border: none;
+					outline: none;
+					caret-color: white;
+					color: white;
+					background: transparent;
+					vertical-align: middle;
+					border-bottom: 1px solid #ccc;
+					transition: all 400ms ease;
+
+					&:focus {
+						box-shadow: none;
+					}
+
+					&:hover {
+						// 这个变量 是ant-design提供的 主色变量
+						border-bottom-color: @primary-color;
+					}
+				}
+				&_button {
+					width: 100%;
+					margin-top: 15px;
+				}
+			}
+		}
+		&-bg {
+			z-index: 0;
+		}
+	}
+}

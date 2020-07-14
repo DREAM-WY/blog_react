@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add @types/jets @types/node @types/react @types/react-dom
+  /usr/local/bin/node /usr/local/bin/yarn add @tyeps/react-router-dom
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/@types%2fjets: Not found
+  Error: https://registry.npm.taobao.org/@tyeps%2freact-router-dom: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66987:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140748:22)
       at Request.emit (events.js:223:5)
@@ -35,9 +35,17 @@ npm manifest:
   		"@testing-library/jest-dom": "^4.2.4",
   		"@testing-library/react": "^9.3.2",
   		"@testing-library/user-event": "^7.1.2",
+  		"@types/axios": "^0.14.0",
+  		"@types/jest": "^26.0.4",
+  		"@types/node": "^14.0.20",
+  		"@types/react": "^16.9.41",
+  		"@types/react-dom": "^16.9.8",
   		"antd": "^4.4.1",
+  		"axios": "^0.19.2",
+  		"particles-bg": "^2.5.0",
   		"react": "^16.13.1",
   		"react-dom": "^16.13.1",
+  		"react-redux": "^7.2.0",
   		"react-router-dom": "^5.2.0",
   		"react-scripts": "3.4.1",
   		"redux": "^4.0.5",
@@ -66,6 +74,8 @@ npm manifest:
   		]
   	},
   	"devDependencies": {
+  		"@types/react-redux": "^7.1.9",
+  		"@types/redux-saga-routines": "^3.1.0",
   		"babel-plugin-import": "^1.13.0",
   		"customize-cra": "^1.0.0",
   		"env-cmd": "^10.1.0",
@@ -1660,6 +1670,13 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/@types/aria-query/download/@types/aria-query-4.2.0.tgz#14264692a9d6e2fa4db3df5e56e94b5e25647ac0"
     integrity sha1-FCZGkqnW4vpNs99eVulLXiVkesA=
   
+  "@types/axios@^0.14.0":
+    version "0.14.0"
+    resolved "https://registry.npm.taobao.org/@types/axios/download/@types/axios-0.14.0.tgz#ec2300fbe7d7dddd7eb9d3abf87999964cafce46"
+    integrity sha1-7CMA++fX3d1+udOr+HmZlkyvzkY=
+    dependencies:
+      axios "*"
+  
   "@types/babel__core@^7.1.0":
     version "7.1.9"
     resolved "https://registry.npm.taobao.org/@types/babel__core/download/@types/babel__core-7.1.9.tgz#77e59d438522a6fb898fa43dc3455c6e72f3963d"
@@ -1711,6 +1728,14 @@ Lockfile:
       "@types/minimatch" "*"
       "@types/node" "*"
   
+  "@types/hoist-non-react-statics@^3.3.0":
+    version "3.3.1"
+    resolved "https://registry.npm.taobao.org/@types/hoist-non-react-statics/download/@types/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
+    integrity sha1-ESSq/lEYy1kZd66xzqrtEHDrA58=
+    dependencies:
+      "@types/react" "*"
+      hoist-non-react-statics "^3.3.0"
+  
   "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
     version "2.0.3"
     resolved "https://registry.npm.taobao.org/@types/istanbul-lib-coverage/download/@types/istanbul-lib-coverage-2.0.3.tgz#4ba8ddb720221f432e443bd5f9117fd22cfd4762"
@@ -1731,6 +1756,14 @@ Lockfile:
       "@types/istanbul-lib-coverage" "*"
       "@types/istanbul-lib-report" "*"
   
+  "@types/jest@^26.0.4":
+    version "26.0.4"
+    resolved "https://registry.npm.taobao.org/@types/jest/download/@types/jest-26.0.4.tgz?cache=0&sync_timestamp=1594071754555&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-26.0.4.tgz#d2e513e85aca16992816f192582b5e67b0b15efb"
+    integrity sha1-0uUT6FrKFpkoFvGSWCteZ7CxXvs=
+    dependencies:
+      jest-diff "^25.2.1"
+      pretty-format "^25.2.1"
+  
   "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.4":
     version "7.0.5"
     resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.5.tgz?cache=0&sync_timestamp=1591721100166&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjson-schema%2Fdownload%2F%40types%2Fjson-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
@@ -1745,6 +1778,11 @@ Lockfile:
     version "14.0.19"
     resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.0.19.tgz?cache=0&sync_timestamp=1594141409441&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.0.19.tgz#994d99708822bca643a2364f8aeed04a16e0f5a1"
     integrity sha1-mU2ZcIgivKZDojZPiu7QShbg9aE=
+  
+  "@types/node@^14.0.20":
+    version "14.0.20"
+    resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.0.20.tgz?cache=0&sync_timestamp=1594229683445&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.0.20.tgz#0da05cddbc761e1fa98af88a17244c8c1ff37231"
+    integrity sha1-DaBc3bx2Hh+piviKFyRMjB/zcjE=
   
   "@types/parse-json@^4.0.0":
     version "4.0.0"
@@ -1761,20 +1799,53 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/@types/q/download/@types/q-1.5.4.tgz?cache=0&sync_timestamp=1589584622046&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fq%2Fdownload%2F%40types%2Fq-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
     integrity sha1-FZJUFOCtLNdlv+9YhC9+JqesyyQ=
   
-  "@types/react-dom@*":
+  "@types/react-dom@*", "@types/react-dom@^16.9.8":
     version "16.9.8"
     resolved "https://registry.npm.taobao.org/@types/react-dom/download/@types/react-dom-16.9.8.tgz#fe4c1e11dfc67155733dfa6aa65108b4971cb423"
     integrity sha1-/kweEd/GcVVzPfpqplEItJcctCM=
     dependencies:
       "@types/react" "*"
   
-  "@types/react@*":
+  "@types/react-redux@^7.1.9":
+    version "7.1.9"
+    resolved "https://registry.npm.taobao.org/@types/react-redux/download/@types/react-redux-7.1.9.tgz#280c13565c9f13ceb727ec21e767abe0e9b4aec3"
+    integrity sha1-KAwTVlyfE863J+wh52er4Om0rsM=
+    dependencies:
+      "@types/hoist-non-react-statics" "^3.3.0"
+      "@types/react" "*"
+      hoist-non-react-statics "^3.3.0"
+      redux "^4.0.0"
+  
+  "@types/react@*", "@types/react@^16.9.41":
     version "16.9.41"
     resolved "https://registry.npm.taobao.org/@types/react/download/@types/react-16.9.41.tgz?cache=0&sync_timestamp=1592990649593&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact%2Fdownload%2F%40types%2Freact-16.9.41.tgz#925137ee4d2ff406a0ecf29e8e9237390844002e"
     integrity sha1-klE37k0v9Aag7PKejpI3OQhEAC4=
     dependencies:
       "@types/prop-types" "*"
       csstype "^2.2.0"
+  
+  "@types/redux-actions@*":
+    version "2.6.1"
+    resolved "https://registry.npm.taobao.org/@types/redux-actions/download/@types/redux-actions-2.6.1.tgz#0940e97fa35ad3004316bddb391d8e01d2efa605"
+    integrity sha1-CUDpf6Na0wBDFr3bOR2OAdLvpgU=
+  
+  "@types/redux-form@*":
+    version "8.2.7"
+    resolved "https://registry.npm.taobao.org/@types/redux-form/download/@types/redux-form-8.2.7.tgz#24282b798b4c1181b1ba4c94b2f92c2ee8dc8ada"
+    integrity sha1-JCgreYtMEYGxukyUsvksLujcito=
+    dependencies:
+      "@types/react" "*"
+      redux "^3.6.0 || ^4.0.0"
+  
+  "@types/redux-saga-routines@^3.1.0":
+    version "3.1.0"
+    resolved "https://registry.npm.taobao.org/@types/redux-saga-routines/download/@types/redux-saga-routines-3.1.0.tgz#9d7bc88cf76b42ba9625e05846fb2181d7d9f228"
+    integrity sha1-nXvIjPdrQrqWJeBYRvshgdfZ8ig=
+    dependencies:
+      "@types/prop-types" "*"
+      "@types/redux-actions" "*"
+      "@types/redux-form" "*"
+      redux "^3.6.0 || ^4.0.0"
   
   "@types/stack-utils@^1.0.1":
     version "1.0.1"
@@ -2460,6 +2531,13 @@ Lockfile:
     version "1.10.0"
     resolved "https://registry.npm.taobao.org/aws4/download/aws4-1.10.0.tgz#a17b3a8ea811060e74d47d306122400ad4497ae2"
     integrity sha1-oXs6jqgRBg501H0wYSJACtRJeuI=
+  
+  axios@*, axios@^0.19.2:
+    version "0.19.2"
+    resolved "https://registry.npm.taobao.org/axios/download/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+    integrity sha1-PqNsXYgY0NX4qKl6bTa4bNwAyyc=
+    dependencies:
+      follow-redirects "1.5.10"
   
   axobject-query@^2.0.2:
     version "2.2.0"
@@ -3477,7 +3555,7 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/core-js-pure/download/core-js-pure-3.6.5.tgz#c79e75f5e38dbc85a662d91eea52b8256d53b813"
     integrity sha1-x5519eONvIWmYtke6lK4JW1TuBM=
   
-  core-js@^2.4.0:
+  core-js@^2.4.0, core-js@^2.5.7:
     version "2.6.11"
     resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
     integrity sha1-OIMUafmSK97Y7iHJ3EaYXgOZMIw=
@@ -3864,6 +3942,13 @@ Lockfile:
     dependencies:
       ms "2.0.0"
   
+  debug@=3.1.0:
+    version "3.1.0"
+    resolved "https://registry.npm.taobao.org/debug/download/debug-3.1.0.tgz?cache=0&sync_timestamp=1589881689076&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+    integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
+    dependencies:
+      ms "2.0.0"
+  
   debug@^3.1.1, debug@^3.2.5:
     version "3.2.6"
     resolved "https://registry.npm.taobao.org/debug/download/debug-3.2.6.tgz?cache=0&sync_timestamp=1589881689076&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
@@ -4000,6 +4085,11 @@ Lockfile:
     version "24.9.0"
     resolved "https://registry.npm.taobao.org/diff-sequences/download/diff-sequences-24.9.0.tgz?cache=0&sync_timestamp=1588642532484&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdiff-sequences%2Fdownload%2Fdiff-sequences-24.9.0.tgz#5715d6244e2aa65f48bba0bc972db0b0b11e95b5"
     integrity sha1-VxXWJE4qpl9Iu6C8ly2wsLEelbU=
+  
+  diff-sequences@^25.2.6:
+    version "25.2.6"
+    resolved "https://registry.npm.taobao.org/diff-sequences/download/diff-sequences-25.2.6.tgz#5f467c00edd35352b7bca46d7927d60e687a76dd"
+    integrity sha1-X0Z8AO3TU1K3vKRteSfWDmh6dt0=
   
   diffie-hellman@^5.0.0:
     version "5.0.3"
@@ -4305,7 +4395,7 @@ Lockfile:
       is-date-object "^1.0.1"
       is-symbol "^1.0.2"
   
-  es5-ext@^0.10.35, es5-ext@^0.10.50:
+  es5-ext@^0.10.35, es5-ext@^0.10.50, es5-ext@~0.10.14:
     version "0.10.53"
     resolved "https://registry.npm.taobao.org/es5-ext/download/es5-ext-0.10.53.tgz#93c5a3acfdbef275220ad72644ad02ee18368de1"
     integrity sha1-k8WjrP2+8nUiCtcmRK0C7hg2jeE=
@@ -4314,7 +4404,7 @@ Lockfile:
       es6-symbol "~3.1.3"
       next-tick "~1.0.0"
   
-  es6-iterator@2.0.3, es6-iterator@~2.0.3:
+  es6-iterator@2.0.3, es6-iterator@~2.0.1, es6-iterator@~2.0.3:
     version "2.0.3"
     resolved "https://registry.npm.taobao.org/es6-iterator/download/es6-iterator-2.0.3.tgz#a7de889141a05a94b0854403b2d0a0fbfa98f3b7"
     integrity sha1-p96IkUGgWpSwhUQDstCg+/qY87c=
@@ -4323,7 +4413,38 @@ Lockfile:
       es5-ext "^0.10.35"
       es6-symbol "^3.1.1"
   
-  es6-symbol@^3.1.1, es6-symbol@~3.1.3:
+  es6-map@^0.1.5:
+    version "0.1.5"
+    resolved "https://registry.npm.taobao.org/es6-map/download/es6-map-0.1.5.tgz#9136e0503dcc06a301690f0bb14ff4e364e949f0"
+    integrity sha1-kTbgUD3MBqMBaQ8LsU/042TpSfA=
+    dependencies:
+      d "1"
+      es5-ext "~0.10.14"
+      es6-iterator "~2.0.1"
+      es6-set "~0.1.5"
+      es6-symbol "~3.1.1"
+      event-emitter "~0.3.5"
+  
+  es6-set@~0.1.5:
+    version "0.1.5"
+    resolved "https://registry.npm.taobao.org/es6-set/download/es6-set-0.1.5.tgz#d2b3ec5d4d800ced818db538d28974db0a73ccb1"
+    integrity sha1-0rPsXU2ADO2BjbU40ol02wpzzLE=
+    dependencies:
+      d "1"
+      es5-ext "~0.10.14"
+      es6-iterator "~2.0.1"
+      es6-symbol "3.1.1"
+      event-emitter "~0.3.5"
+  
+  es6-symbol@3.1.1:
+    version "3.1.1"
+    resolved "https://registry.npm.taobao.org/es6-symbol/download/es6-symbol-3.1.1.tgz#bf00ef4fdab6ba1b46ecb7b629b4c7ed5715cc77"
+    integrity sha1-vwDvT9q2uhtG7Le2KbTH7VcVzHc=
+    dependencies:
+      d "1"
+      es5-ext "~0.10.14"
+  
+  es6-symbol@^3.1.1, es6-symbol@~3.1.1, es6-symbol@~3.1.3:
     version "3.1.3"
     resolved "https://registry.npm.taobao.org/es6-symbol/download/es6-symbol-3.1.3.tgz#bad5d3c1bcdac28269f4cb331e431c78ac705d18"
     integrity sha1-utXTwbzawoJp9MszHkMceKxwXRg=
@@ -4585,6 +4706,14 @@ Lockfile:
     version "1.8.1"
     resolved "https://registry.npm.taobao.org/etag/download/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
     integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
+  
+  event-emitter@~0.3.5:
+    version "0.3.5"
+    resolved "https://registry.npm.taobao.org/event-emitter/download/event-emitter-0.3.5.tgz#df8c69eef1647923c7157b9ce83840610b02cc39"
+    integrity sha1-34xp7vFkeSPHFXuc6DhAYQsCzDk=
+    dependencies:
+      d "1"
+      es5-ext "~0.10.14"
   
   eventemitter3@^4.0.0:
     version "4.0.4"
@@ -4953,6 +5082,13 @@ Lockfile:
     dependencies:
       inherits "^2.0.3"
       readable-stream "^2.3.6"
+  
+  follow-redirects@1.5.10:
+    version "1.5.10"
+    resolved "https://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.5.10.tgz?cache=0&sync_timestamp=1592518348860&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffollow-redirects%2Fdownload%2Ffollow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+    integrity sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=
+    dependencies:
+      debug "=3.1.0"
   
   follow-redirects@^1.0.0:
     version "1.12.1"
@@ -5378,7 +5514,7 @@ Lockfile:
       minimalistic-assert "^1.0.0"
       minimalistic-crypto-utils "^1.0.1"
   
-  hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.2:
+  hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
     version "3.3.2"
     resolved "https://registry.npm.taobao.org/hoist-non-react-statics/download/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
     integrity sha1-7OCsr3HWLClpwuxZ/v9CpLGoW0U=
@@ -6209,6 +6345,16 @@ Lockfile:
       jest-get-type "^24.9.0"
       pretty-format "^24.9.0"
   
+  jest-diff@^25.2.1:
+    version "25.5.0"
+    resolved "https://registry.npm.taobao.org/jest-diff/download/jest-diff-25.5.0.tgz?cache=0&sync_timestamp=1592925839936&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjest-diff%2Fdownload%2Fjest-diff-25.5.0.tgz#1dd26ed64f96667c068cef026b677dfa01afcfa9"
+    integrity sha1-HdJu1k+WZnwGjO8Ca2d9+gGvz6k=
+    dependencies:
+      chalk "^3.0.0"
+      diff-sequences "^25.2.6"
+      jest-get-type "^25.2.6"
+      pretty-format "^25.5.0"
+  
   jest-docblock@^24.3.0:
     version "24.9.0"
     resolved "https://registry.npm.taobao.org/jest-docblock/download/jest-docblock-24.9.0.tgz?cache=0&sync_timestamp=1588642526700&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjest-docblock%2Fdownload%2Fjest-docblock-24.9.0.tgz#7970201802ba560e1c4092cc25cbedf5af5a8ce2"
@@ -6266,6 +6412,11 @@ Lockfile:
     version "24.9.0"
     resolved "https://registry.npm.taobao.org/jest-get-type/download/jest-get-type-24.9.0.tgz?cache=0&sync_timestamp=1588642528711&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjest-get-type%2Fdownload%2Fjest-get-type-24.9.0.tgz#1684a0c8a50f2e4901b6644ae861f579eed2ef0e"
     integrity sha1-FoSgyKUPLkkBtmRK6GH1ee7S7w4=
+  
+  jest-get-type@^25.2.6:
+    version "25.2.6"
+    resolved "https://registry.npm.taobao.org/jest-get-type/download/jest-get-type-25.2.6.tgz#0b0a32fab8908b44d508be81681487dbabb8d877"
+    integrity sha1-Cwoy+riQi0TVCL6BaBSH26u42Hc=
   
   jest-haste-map@^24.9.0:
     version "24.9.0"
@@ -7915,6 +8066,14 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/parseurl/download/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
     integrity sha1-naGee+6NEt/wUT7Vt2lXeTvC6NQ=
   
+  particles-bg@^2.5.0:
+    version "2.5.0"
+    resolved "https://registry.npm.taobao.org/particles-bg/download/particles-bg-2.5.0.tgz#1e84f928124175c856f898f862490d4fa47e0ae2"
+    integrity sha1-HoT5KBJBdchW+Jj4YkkNT6R+CuI=
+    dependencies:
+      proton-engine "^4.1.3"
+      raf-manager "^0.3.0"
+  
   pascal-case@^3.1.1:
     version "3.1.1"
     resolved "https://registry.npm.taobao.org/pascal-case/download/pascal-case-3.1.1.tgz#5ac1975133ed619281e88920973d2cd1f279de5f"
@@ -8821,7 +8980,7 @@ Lockfile:
       ansi-styles "^3.2.0"
       react-is "^16.8.4"
   
-  pretty-format@^25.1.0, pretty-format@^25.5.0:
+  pretty-format@^25.1.0, pretty-format@^25.2.1, pretty-format@^25.5.0:
     version "25.5.0"
     resolved "https://registry.npm.taobao.org/pretty-format/download/pretty-format-25.5.0.tgz?cache=0&sync_timestamp=1592925335887&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpretty-format%2Fdownload%2Fpretty-format-25.5.0.tgz#7873c1d774f682c34b8d48b6743a2bf2ac55791a"
     integrity sha1-eHPB13T2gsNLjUi2dDor8qxVeRo=
@@ -8881,6 +9040,11 @@ Lockfile:
       loose-envify "^1.4.0"
       object-assign "^4.1.1"
       react-is "^16.8.1"
+  
+  proton-engine@^4.1.3:
+    version "4.1.5"
+    resolved "https://registry.npm.taobao.org/proton-engine/download/proton-engine-4.1.5.tgz#3bb1a7071898a1f8b605f38022abf392aa577add"
+    integrity sha1-O7GnBxiYofi2BfOAIqvzkqpXet0=
   
   proxy-addr@~2.0.5:
     version "2.0.6"
@@ -8989,6 +9153,14 @@ Lockfile:
     version "2.1.1"
     resolved "https://registry.npm.taobao.org/querystringify/download/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
     integrity sha1-YOWl/WSn+L+k0qsu1v30yFutFU4=
+  
+  raf-manager@^0.3.0:
+    version "0.3.0"
+    resolved "https://registry.npm.taobao.org/raf-manager/download/raf-manager-0.3.0.tgz#ec9a659e8a50534e4d64200b7a39ce9905f10e9c"
+    integrity sha1-7JplnopQU05NZCALejnOmQXxDpw=
+    dependencies:
+      core-js "^2.5.7"
+      es6-map "^0.1.5"
   
   raf@^3.4.0, raf@^3.4.1:
     version "3.4.1"
@@ -9426,10 +9598,21 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
     integrity sha1-Hc+0WatnHVP2YKmRUTyy8KBVMQg=
   
-  react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
+  react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
     version "16.13.1"
     resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
+  
+  react-redux@^7.2.0:
+    version "7.2.0"
+    resolved "https://registry.npm.taobao.org/react-redux/download/react-redux-7.2.0.tgz?cache=0&sync_timestamp=1581997949260&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-redux%2Fdownload%2Freact-redux-7.2.0.tgz#f970f62192b3981642fec46fd0db18a074fe879d"
+    integrity sha1-+XD2IZKzmBZC/sRv0NsYoHT+h50=
+    dependencies:
+      "@babel/runtime" "^7.5.5"
+      hoist-non-react-statics "^3.3.0"
+      loose-envify "^1.4.0"
+      prop-types "^15.7.2"
+      react-is "^16.9.0"
   
   react-router-dom@^5.2.0:
     version "5.2.0"
@@ -9653,7 +9836,7 @@ Lockfile:
     dependencies:
       "@redux-saga/core" "^1.1.3"
   
-  redux@^4.0.4, redux@^4.0.5:
+  "redux@^3.6.0 || ^4.0.0", redux@^4.0.0, redux@^4.0.4, redux@^4.0.5:
     version "4.0.5"
     resolved "https://registry.npm.taobao.org/redux/download/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
     integrity sha1-TbXeWBbheJHeioDEJCMtBvBR2T8=
