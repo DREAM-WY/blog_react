@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-18 21:39:30
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-18 22:28:59
+ * @LastEditTime: 2020-07-19 22:59:50
  * @Description: 返回一个对象里面有对登陆状态的操作
  * @FilePath: /blog_react/src/utils/loginUtils.ts
  */
@@ -31,11 +31,12 @@ export default {
 		if (window.location.pathname !== "/login") window.location.href = "/login"
 	},
 	getUserState() {
+		debugger
 		// 获取用户信息
 		const storeStaet = store.getState().user.isLogin
-		if (!storeStaet) return true
-		const localToken = localStorage.get(tokenKey)
-		if (storeStaet) {
+		if (storeStaet) return true
+		const localToken = localStore.get(tokenKey)
+		if (localToken) {
 			store.dispatch(
 				loginAction.success({
 					token: localToken,

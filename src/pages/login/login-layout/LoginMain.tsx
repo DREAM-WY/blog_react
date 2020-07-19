@@ -22,7 +22,14 @@ const LoginMain: React.FC<IProps> = props => {
 				fetch({
 					username: values.username,
 					password: values.password,
-				})
+				}).then(
+					res => {
+						console.log(res)
+					},
+					err => {
+						console.log(err)
+					}
+				)
 			} catch (error) {
 				console.log(error)
 			}

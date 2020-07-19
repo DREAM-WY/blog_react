@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-11 09:30:31
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-15 18:45:51
+ * @LastEditTime: 2020-07-19 09:24:20
  * @Description: user模块
  * @FilePath: /blog_react/src/redux/saga/sagas/user/user.ts
  */
@@ -23,7 +23,7 @@ function* authorize(action: ActionParams<ILogin>) {
 		yield put(loginAction.success(res))
 	} catch (error) {
 		// 错误处理
-		yield put(loginAction.failure())
+		yield put(loginAction.failure(error))
 	}
 }
 

@@ -1,18 +1,12 @@
+/***
+ * @auth: dmx
+ * @time: 2020/6/20
+ * @func: 有可能涉及到ant-design 的 ICON组件， ant4 的Icon是改版了，
+ ***/
 import React from "react"
+import { BrowserRouter } from "react-router-dom"
+import { renderRoutes } from "react-router-config"
+import config from "./config"
 
-import { BrowserRouter, Switch, Route } from "react-router-dom"
-import Login from "../pages/login"
-
-import BlogLayout from "../layout"
-
-// react写组件
-export default function () {
-	return (
-		<BrowserRouter>
-			<Switch>
-				<Route path="/" component={BlogLayout} />
-				<Route path="/login" component={Login} />
-			</Switch>
-		</BrowserRouter>
-	)
-}
+const routes = <BrowserRouter>{renderRoutes(config)}</BrowserRouter>
+export default routes
