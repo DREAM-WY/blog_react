@@ -1,6 +1,6 @@
 import React, { memo } from "react"
 import { Form, Button, Input, notification } from "antd"
-
+import MD5 from "crypto-js/md5"
 interface IProps {
 	fetch: (values: ILogin) => Promise<any>
 	loading: boolean
@@ -19,9 +19,14 @@ const LoginMain: React.FC<IProps> = props => {
 		} else {
 			// 用户名密码校验通过 执行登陆
 			try {
+				const { REACT_APP_MD5_SUFFIX } = process.env
+				const newPassword = MD5(
+					`${values.password}${REACT_APP_MD5_SUFFIX}`
+				).toString()
+
 				fetch({
 					username: values.username,
-					password: values.password,
+					password: newPassword,
 				}).then(
 					res => {
 						console.log(res)

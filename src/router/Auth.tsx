@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-19 10:43:17
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-19 22:51:04
+ * @LastEditTime: 2020-07-19 23:18:52
  * @Description: 路由鉴权文件
  * @FilePath: /blog_react/src/router/Auth.tsx
  */
@@ -39,7 +39,6 @@ const Auth: React.FC<IProps> = props => {
 		/>
 	) : null
 	console.log(isLogin, location, retryTip)
-	debugger
 	if (!isLogin && location.pathname !== "/login") {
 		return <Redirect to="/login" />
 	}

@@ -2,25 +2,31 @@
  * @Author: wuyu
  * @Date: 2020-07-11 09:30:31
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-19 09:24:20
+ * @LastEditTime: 2020-07-19 23:29:49
  * @Description: user模块
  * @FilePath: /blog_react/src/redux/saga/sagas/user/user.ts
  */
 
 import { call, put, take, delay, takeEvery, cancel } from "redux-saga/effects"
+import loginUtils from "../../../../utils/loginUtils"
 
 import { loginAction } from "../../actions/user"
 import { login } from "../../../../http/user"
 function* authorize(action: ActionParams<ILogin>) {
 	// 一进来就去调用后端的接口
 	try {
+		console.log(action)
+
 		// call表示同步, 表示同步的方式做异步的事情
 		const res = yield call(login, action.payload)
+		console.log(res)
+
 		// call 效果上表示同步的事情
 		// 一般登陆成功后回获取一个token 一般进行本地存储 同时本次登陆过后 需要把token放入下次的请求头里面
 		// 如果需要延迟
-		yield delay(1000)
-		yield put(loginAction.success(res))
+		yield call(loginUtils.saveLoginState, res.payload)
+		// 如果需要延迟
+		yield put(loginAction.success(res.payload))
 	} catch (error) {
 		// 错误处理
 		yield put(loginAction.failure(error))

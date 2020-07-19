@@ -9,3 +9,4 @@ dist/
 # Editor-based HTTP Client requests
 /httpRequests/
 node_modules
+yarn-error.log
