@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-11 09:18:45
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-14 10:34:00
+ * @LastEditTime: 2020-07-18 11:31:19
  * @Description: 登陆的各种type操作
  * @FilePath: /blog_react/src/redux/saga/reducers/user/index.ts
  */
@@ -15,6 +15,12 @@ const initialStateSetter: IUser = {
 }
 export default function (state = initialStateSetter, action: ActionParams) {
 	switch (action.type) {
+		case loginAction.TRIGGER: {
+			return {
+				...state,
+				loading: true,
+			}
+		}
 		case loginAction.SUCCESS: {
 			return {
 				...state,
@@ -22,9 +28,15 @@ export default function (state = initialStateSetter, action: ActionParams) {
 			}
 		}
 		case loginAction.FAILURE: {
-			console.log("出错了")
 			return {
 				...state,
+				loading: false,
+			}
+		}
+		case loginAction.FULFILL: {
+			return {
+				...state,
+				loading: false,
 			}
 		}
 		default:
