@@ -15,11 +15,8 @@ import { login } from "../../../../http/user"
 function* authorize(action: ActionParams<ILogin>) {
 	// 一进来就去调用后端的接口
 	try {
-		console.log(action)
-
 		// call表示同步, 表示同步的方式做异步的事情
 		const res = yield call(login, action.payload)
-		console.log(res)
 
 		// call 效果上表示同步的事情
 		// 一般登陆成功后回获取一个token 一般进行本地存储 同时本次登陆过后 需要把token放入下次的请求头里面
