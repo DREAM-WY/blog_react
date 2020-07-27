@@ -1,11 +1,7 @@
 .layout {
 	width: 100%;
 	height: 100%;
-	&-logo {
-		height: 32px;
-		background: rgba(255, 255, 255, 0.2);
-		margin: 16px;
-	}
+
 	&-header {
 		&-background {
 			background-color: #fff;
@@ -37,6 +33,35 @@
 			&-roght {
 				flex-shrink: 0;
 				flex-grow: 0;
+			}
+		}
+	}
+	.siderbar {
+		background-color: @primary-color;
+		.logo {
+			display: flex;
+			align-items: center;
+			height: 48px;
+			padding: 12px;
+			width: 200px;
+			background: @primary-color;
+
+			&-icon {
+				font-size: 32px;
+				color: #fff;
+			}
+			&-title {
+				position: relative;
+				top: 0px;
+				left: 20px;
+				font-size: 22px;
+				color: #fff;
+			}
+		}
+		.ant-menu {
+			background: @primary-color;
+			.ant-menu-sub {
+				background: @primary-color;
 			}
 		}
 	}
