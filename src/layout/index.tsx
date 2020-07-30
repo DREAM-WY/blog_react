@@ -1,8 +1,8 @@
 import React, { memo, useState, useEffect } from "react"
 import useActions from "../hooks/useActions"
-
+import { useSelector } from "react-redux"
 import "./index.less"
-import { Layout } from "antd"
+import { Layout, Spin } from "antd"
 import TopMenu from "./components/topMenu"
 import RightMenu from "./components/rightMenu"
 import LeftTop from "./leftTop"
@@ -14,7 +14,8 @@ const { Header, Content } = Layout
 
 interface IProps extends RouteConfigComponentProps {}
 const BlogLayout: React.FC<IProps> = props => {
-	const { route } = props
+	const { route, history, location } = props
+	const { topMenu } = useSelector((state: IState) => state.menu)
 	const [collapsed, setCollapsed] = useState(false)
 	const actions = useActions({
 		setMenu: menuAction.setMenu,
@@ -24,12 +25,13 @@ const BlogLayout: React.FC<IProps> = props => {
 			actions.setMenu({ routes: route?.routes })
 		}
 	}, [])
+	if (topMenu.length === 0) return <Spin />
 	const toggle = () => {
 		setCollapsed(!collapsed)
 	}
 	return (
 		<Layout className="layout">
-			<LeftTop collapsed={false} />
+			<LeftTop collapsed={false} history={history} location={location} />
 			<Layout className="layout-header">
 				<Header className="layout-header-background" style={{ padding: 0 }}>
 					<div className="layout-header-top">
@@ -42,7 +44,7 @@ const BlogLayout: React.FC<IProps> = props => {
 							)}
 						</div>
 						<div className="layout-header-top-menu">
-							<TopMenu />
+							<TopMenu history={history} location={location} />
 						</div>
 						<div className="layout-header-top-roght">
 							<RightMenu />

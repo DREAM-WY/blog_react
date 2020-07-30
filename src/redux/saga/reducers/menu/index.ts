@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-24 15:40:47
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-26 23:36:11
+ * @LastEditTime: 2020-07-30 23:34:20
  * @Description: 处理menu数据
  * @FilePath: /blog_react/src/redux/saga/reducers/menu/index.ts
  */
@@ -13,6 +13,8 @@ const initialStateSetter: IMenu = {
 	breadcrumb: {},
 	topMenu: [],
 	sideMenu: {},
+	currentSiderBar: [],
+	currentTopMenu: null,
 }
 export default (state = initialStateSetter, action: ActionParams) => {
 	switch (action.type) {
@@ -24,6 +26,15 @@ export default (state = initialStateSetter, action: ActionParams) => {
 				topMenu,
 				sideMenu,
 				breadcrumd,
+			}
+		}
+		case menuAction.SET_CURRENt_MENU: {
+			console.log(action.payload, "123")
+			console.log(state.sideMenu)
+			return {
+				...state,
+				...action.payload,
+				currentSiderBar: state.sideMenu[action.payload.currentTopMenu] || [],
 			}
 		}
 		default:

@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-25 09:44:43
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-26 23:42:13
+ * @LastEditTime: 2020-07-27 16:36:08
  * @Description:
  * @FilePath: /blog_react/src/redux/saga/reducers/menu/utils.js
  */
@@ -16,7 +16,6 @@ export const createMenu = (rootPath, routes, permissions) => {
 	const menu = []
 
 	routes.forEach(subMenu => {
-		console.log(subMenu, "subMenu")
 		const underMenu = []
 		if (subMenu.routes) {
 			// 如果routes存在去遍历这个对象
