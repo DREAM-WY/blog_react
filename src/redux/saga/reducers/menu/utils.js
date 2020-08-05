@@ -2,30 +2,32 @@
  * @Author: wuyu
  * @Date: 2020-07-25 09:44:43
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-27 16:36:08
+ * @LastEditTime: 2020-08-02 11:25:23
  * @Description:
  * @FilePath: /blog_react/src/redux/saga/reducers/menu/utils.js
  */
 
-const breadcrumd = {}
-/**
- *
- * @params: rootPath 根路径
- */
+const breadcrumb = {}
+
+/*
+ * 抽离逻辑出来
+ * 协助recursiveMenu 处理下级路由
+ * @params: rootPath 跟路径
+ * */
 export const createMenu = (rootPath, routes, permissions) => {
 	const menu = []
 
 	routes.forEach(subMenu => {
 		const underMenu = []
 		if (subMenu.routes) {
-			// 如果routes存在去遍历这个对象
+			// 又要去遍历这个对象
 			subMenu.routes.forEach(under => {
+				// 在这里边处理
 				const basePath = rootPath + subMenu.path
-				if (permissions) {
-					// 处理权限
-				}
+				// if( permissions ) { // 处理权限 }
 				if (under.path) {
-					breadcrumd[basePath + under.path] = {
+					// 处理面包屑
+					breadcrumb[basePath + under.path] = {
 						icon: under.icon,
 						name: under.name,
 					}
@@ -39,65 +41,77 @@ export const createMenu = (rootPath, routes, permissions) => {
 				if (under.routes) {
 					under.routes.forEach(lastRoute => {
 						if (lastRoute.path) {
-							breadcrumd[basePath + under.path + lastRoute.path] = {
+							breadcrumb[basePath + under.path + lastRoute.path] = {
 								icon: lastRoute.icon,
 								name: lastRoute.name,
 							}
 						}
 					})
 				}
+
 				if (underMenu.length !== 0) {
 					menu.push({
-						name: subMenu.name,
 						icon: subMenu.icon,
+						name: subMenu.name,
 						path: `${rootPath}${subMenu.path}`,
 						routes: underMenu,
 					})
-					// 还需要处理面包屑
-					breadcrumd[`${rootPath}${subMenu.path}`] = {
-						name: subMenu.name,
-						icon: subMenu.icon,
-					}
+				}
+				// 还需要在这里，处理 面包屑
+				breadcrumb[`${rootPath}${subMenu.path}`] = {
+					name: subMenu.name,
+					icon: subMenu.icon,
 				}
 			})
 		} else {
 			menu.push({
-				name: subMenu.name,
 				icon: subMenu.icon,
+				name: subMenu.name,
 				path: `${rootPath}${subMenu.path}`,
 			})
-			breadcrumd[`${rootPath}${subMenu.path}`] = {
+
+			// 还需要在这里，处理 面包屑
+			breadcrumb[`${rootPath}${subMenu.path}`] = {
 				name: subMenu.name,
 				icon: subMenu.icon,
 			}
 		}
 	})
+
 	return menu
 }
-export const recureiveMenu = routes => {
+
+/*
+ * 处理数据，返回路由所需数据的函数
+ * @params: routes ===> 路由对象
+ * @params: permissions ===> 后端返回给咱们的权限码 是一个数组。
+ * */
+export const recursiveMenu = (routes, permissions = []) => {
 	const topMenu = []
-	const sideMenu = []
+	const sideMenu = {}
+
 	routes.forEach(route => {
+		const path = route.path
 		topMenu.push({
 			name: route.name,
 			path: route.path || "",
 			icon: route.icon,
 		})
-		// console.log(topMenu)
-		const path = route.path
 		if (route.routes) {
+			// 说明应该处理 breadcrumb
 			const sidebar = createMenu(path, route.routes)
 			sideMenu[path] = sidebar
-			breadcrumd[path] = {
+
+			breadcrumb[path] = {
 				name: route.name,
 				icon: route.icon,
 			}
 		}
 	})
-	console.log(sideMenu)
+
 	return {
 		topMenu,
-		breadcrumd,
+		breadcrumb,
 		sideMenu,
 	}
 }

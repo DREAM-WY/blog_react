@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-23 15:46:37
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-30 23:39:11
+ * @LastEditTime: 2020-08-01 08:16:08
  * @Description: left-top的布局
  * @FilePath: /blog_react/src/layout/leftTop/index.tsx
  */
@@ -24,10 +24,7 @@ const recursion = (currentSiderBar: any): any => {
 	const root = currentSiderBar.map((menu: any) => {
 		if (menu.routes) {
 			return (
-				<SubMenu
-					key={menu.path}
-					title={<span>{menu.name}</span>}
-					icon={menu.icon}>
+				<SubMenu key={menu.path} title={<span>{menu.name}</span>} icon={menu.icon}>
 					{recursion(menu.routes)}
 				</SubMenu>
 			)
@@ -47,9 +44,7 @@ const LeftTopSidebar: React.FC<IProps> = props => {
 		history,
 		location: { pathname },
 	} = props
-	const { currentSiderBar, currentTopMenu } = useSelector(
-		(state: IState) => state.menu
-	)
+	const { currentSiderBar, currentTopMenu } = useSelector((state: IState) => state.menu)
 	const [keys, setKeys] = useState<{
 		currentOpenSubs: string[]
 		currentSideMenu: string
@@ -83,10 +78,7 @@ const LeftTopSidebar: React.FC<IProps> = props => {
 	useEffect(() => {
 		let currentSideMenu = ""
 		let currentOpenSubs: string[] = []
-		if (
-			!keys.currentSideMenu ||
-			(currentTopMenu && !matchPath(pathname, { path: keys.currentSideMenu }))
-		) {
+		if (!keys.currentSideMenu || (currentTopMenu && !matchPath(pathname, { path: keys.currentSideMenu }))) {
 			console.log(currentSiderBar)
 
 			if (currentSiderBar && currentSiderBar.length !== 0) {
@@ -159,11 +151,7 @@ const LeftTopSidebar: React.FC<IProps> = props => {
 	if (currentSiderBar.length === 0) return null
 
 	return (
-		<Sider
-			className="siderbar"
-			trigger={null}
-			collapsible
-			collapsed={collapsed}>
+		<Sider className="siderbar" trigger={null} collapsible collapsed={collapsed}>
 			<div className="logo">
 				<CodepenOutlined className="logo-icon" />
 				<span className="logo-title">blog_react</span>
@@ -180,10 +168,7 @@ const LeftTopSidebar: React.FC<IProps> = props => {
 				{currentSiderBar.map((menu: ISiderbarItem) => {
 					if (menu.routes) {
 						return (
-							<SubMenu
-								key={menu.path}
-								title={<span>{menu.name}</span>}
-								icon={menu.icon}>
+							<SubMenu key={menu.path} title={<span>{menu.name}</span>} icon={menu.icon}>
 								{/* 如果将来 咱们有需求，要添加多级路由*/}
 								{menu.routes.map((menuItem: IMenuItem) => (
 									<Item key={menuItem.path} icon={menuItem.icon}>

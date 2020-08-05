@@ -24,8 +24,10 @@
 			height: 48px;
 			box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 			&-menu {
+				padding-left: 15px;
 				flex-shrink: 1;
 				flex-grow: 1;
+				overflow: auto;
 				.top-menu {
 					height: 47px;
 				}
@@ -35,16 +37,27 @@
 				flex-grow: 0;
 			}
 		}
-	}
-	.siderbar {
-		background-color: @primary-color;
-		.logo {
+		.layout-content {
+			margin: 15px;
+			padding: 8px;
+			background-color: #ffffff;
+		}
+		.breadcrumb {
 			display: flex;
 			align-items: center;
-			height: 48px;
-			padding: 12px;
+			padding: 15px 0;
+			&-icon {
+				margin-right: 4px;
+			}
+		}
+	}
+	.siderbar {
+		overflow: hidden;
+		background-color: @primary-color;
+		.logo {
+			padding: 8px 0 0 24px;
 			width: 200px;
-			background: @primary-color;
+			height: 48px;
 
 			&-icon {
 				font-size: 32px;
@@ -53,7 +66,7 @@
 			&-title {
 				position: relative;
 				top: 0px;
-				left: 20px;
+				left: 24px;
 				font-size: 22px;
 				color: #fff;
 			}

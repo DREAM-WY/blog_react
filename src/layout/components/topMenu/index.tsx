@@ -15,9 +15,7 @@ interface IProps {
 const { Item } = Menu
 
 const TopMenu: React.FC<IProps> = props => {
-	const { topMenu, sideMenu, currentTopMenu } = useSelector(
-		(state: IState) => state.menu
-	)
+	const { topMenu, sideMenu, currentTopMenu } = useSelector((state: IState) => state.menu)
 	const {
 		history,
 		location: { pathname },
@@ -25,7 +23,6 @@ const TopMenu: React.FC<IProps> = props => {
 	const actions = useActions({
 		setCurrentMenu: menuAction.setCurrentMenu,
 	})
-	console.log(currentTopMenu)
 	const handleClick = useCallback(
 		({ key }) => {
 			actions.setCurrentMenu({
@@ -37,10 +34,7 @@ const TopMenu: React.FC<IProps> = props => {
 	)
 	// 处理初始的逻辑
 	useEffect(() => {
-		if (
-			!currentTopMenu ||
-			pathname.split("/")[1] !== currentTopMenu.split("/")[1]
-		) {
+		if (!currentTopMenu || pathname.split("/")[1] !== currentTopMenu.split("/")[1]) {
 			// 就要去寻找选中的是哪一项
 			let selectedMenu = topMenu.find(menu => {
 				const matchedRoute = matchPath(pathname, {
