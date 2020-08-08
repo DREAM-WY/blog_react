@@ -5,10 +5,11 @@ import { Popover } from "antd"
 import "./index.less"
 
 interface IProps {
-	themColor: string
+	themeColor: string
 	onChangeComplete: (color: string) => void
 	type?: string
 	position?: string
+	small?: boolean
 }
 const pickers: {
 	[key: string]: React.ReactNode
@@ -18,14 +19,9 @@ const pickers: {
 }
 
 const PickerColor: React.FC<IProps> = props => {
-	const {
-		type = "sketch",
-		position = "bottom",
-		themColor,
-		onChangeComplete,
-	} = props
+	const { type = "sketch", position = "bottom", themeColor, onChangeComplete } = props
 	const [displayColorPicker, setDisplayColorPicker] = useState(false)
-	const [color, serColor] = useState(themColor)
+	const [color, serColor] = useState(themeColor)
 	const Picker: any = pickers[type]
 
 	const handleChange = () => {
@@ -67,10 +63,7 @@ const PickerColor: React.FC<IProps> = props => {
 			<div className="popover">
 				<div className="cover" onClick={handleClosepicker} />
 				<div style={styles.wrapper}>
-					<Picker
-						onChange={handleChange}
-						onChangeComplete={handleChangeComplete}
-					/>
+					<Picker {...props} color={color} onChange={handleChange} onChangeComplete={handleChangeComplete} />
 				</div>
 			</div>
 		) : null

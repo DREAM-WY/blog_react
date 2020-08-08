@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-26 17:43:30
  * @LastEditors: wuyu
- * @LastEditTime: 2020-07-28 22:26:31
+ * @LastEditTime: 2020-08-06 00:36:47
  * @Description: menu 的接口
  * @FilePath: /blog_react/src/redux/saga/reducers/menu/menu.d.ts
  */
@@ -19,6 +19,9 @@ interface IMenu {
 	}
 	currentSiderBar: ISiderbar
 	currentTopMenu: string | null
+	theme: any
+	primaryColor: string
+	drawer: boolean
 }
 
 type IMenuItem = {

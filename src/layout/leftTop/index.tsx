@@ -2,16 +2,17 @@
  * @Author: wuyu
  * @Date: 2020-07-23 15:46:37
  * @LastEditors: wuyu
- * @LastEditTime: 2020-08-01 08:16:08
+ * @LastEditTime: 2020-08-09 00:05:04
  * @Description: left-top的布局
  * @FilePath: /blog_react/src/layout/leftTop/index.tsx
  */
-import React, { memo, useCallback, useEffect, useState } from "react"
+import React, { memo, useMemo, useCallback, useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { RouteConfigComponentProps } from "react-router-config"
 import { Layout, Menu } from "antd"
 import { CodepenOutlined } from "@ant-design/icons"
 import { matchPath } from "react-router-dom"
+
 const { Sider } = Layout
 const { Item, SubMenu } = Menu
 interface IProps {
@@ -44,7 +45,8 @@ const LeftTopSidebar: React.FC<IProps> = props => {
 		history,
 		location: { pathname },
 	} = props
-	const { currentSiderBar, currentTopMenu } = useSelector((state: IState) => state.menu)
+	const { currentSiderBar, currentTopMenu, theme, primaryColor } = useSelector((state: IState) => state.menu)
+	console.log(theme, "theme")
 	const [keys, setKeys] = useState<{
 		currentOpenSubs: string[]
 		currentSideMenu: string
@@ -148,16 +150,32 @@ const LeftTopSidebar: React.FC<IProps> = props => {
 			})
 		}
 	}, [currentSiderBar, currentTopMenu, keys.currentSideMenu, pathname])
+
+	const style = useMemo(
+		() => ({
+			siderbar: {
+				boxShadow: `1px 0 6px ${primaryColor}`,
+				background: theme === "light" ? "#ffff" : primaryColor,
+			},
+			logoColor: {
+				backgroundColor: theme === "light" ? "#fff" : primaryColor,
+				color: theme !== "light" ? "#ffff" : primaryColor,
+			},
+		}),
+		[primaryColor, theme]
+	)
 	if (currentSiderBar.length === 0) return null
 
 	return (
-		<Sider className="siderbar" trigger={null} collapsible collapsed={collapsed}>
-			<div className="logo">
-				<CodepenOutlined className="logo-icon" />
-				<span className="logo-title">blog_react</span>
+		<Sider className="siderbar" trigger={null} collapsible collapsed={collapsed} style={style.siderbar}>
+			<div className="logo" style={style.logoColor}>
+				<CodepenOutlined style={style.logoColor} className="logo-icon" />
+				<span className="logo-title" style={style.logoColor}>
+					blog_react
+				</span>
 			</div>
 			<Menu
-				theme="dark"
+				theme={theme}
 				mode="inline"
 				defaultSelectedKeys={["1"]}
 				onClick={handleClickMenu}
