@@ -1,4 +1,6 @@
 import React from "react"
+import Loadable from "react-loadable"
+
 import Auth from "./Auth"
 import Dashboard from "../pages/dashboard"
 import Login from "../pages/login"
@@ -6,11 +8,9 @@ import BlogLayout from "../layout"
 import RouteWithSubRouters from "./RouteWithSubRouters"
 import blog from "./config/blog"
 import person from "./config/person"
-import {
-	DiffOutlined,
-	BoldOutlined,
-	DashboardOutlined,
-} from "@ant-design/icons"
+import loadings from "./loadings"
+
+import { DiffOutlined, BoldOutlined, DashboardOutlined } from "@ant-design/icons"
 
 export default [
 	{
@@ -21,8 +21,27 @@ export default [
 		routes: [
 			{
 				// 1级级路由
-				component: Login,
+				component: Loadable({
+					loader: () => import("../pages/login"),
+					...loadings,
+				}),
 				path: "/login",
+			},
+			{
+				// 404
+				path: "/404",
+				component: Loadable({
+					loader: () => import("../components/notFound/NotFound"),
+					...loadings,
+				}),
+			},
+			{
+				// 暂无权限
+				path: "/403",
+				component: Loadable({
+					loader: () => import("../components/notFound/NotFound"),
+					...loadings,
+				}),
 			},
 			{
 				path: "/",
@@ -35,7 +54,6 @@ export default [
 						name: "工作台",
 						path: "/dashboard",
 					},
-					// 还有一个404 的页面，
 					{
 						// 1级级路由
 						component: RouteWithSubRouters,

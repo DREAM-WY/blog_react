@@ -1,5 +1,5 @@
 /***
- * @auth: dmx
+ * @auth: 吴宇
  * @time: 2020/7/7
  * @func:
  * @params:
@@ -7,10 +7,9 @@
  * @updateTime:
  ***/
 import React from "react"
+import Loadable from "react-loadable"
+import loadings from "../loadings"
 import RouteWithSubRouters from "../RouteWithSubRouters"
-import Tag from "../../pages/blog-manage/tag"
-import CreateTag from "../../pages/blog-manage/tag/CreateTag"
-import Article from "../../pages/blog-manage/article"
 import {
 	UnderlineOutlined,
 	FontSizeOutlined,
@@ -22,7 +21,10 @@ import {
 const blog = [
 	{
 		// 2级级路由
-		component: Tag,
+		component: Loadable({
+			loader: () => import("../../pages/blog-manage/tag"),
+			...loadings,
+		}),
 		icon: <UnderlineOutlined />,
 		name: "博客面板",
 		path: "/blog-dashboard",
@@ -43,13 +45,19 @@ const blog = [
 				routes: [
 					{
 						// 4级级路由
-						component: Tag,
+						component: Loadable({
+							loader: () => import("../../pages/blog-manage/tag"),
+							...loadings,
+						}),
 					},
 					{
 						path: "/create",
 						icon: <BgColorsOutlined />,
 						name: "新建标签",
-						component: CreateTag,
+						component: Loadable({
+							loader: () => import("../../pages/blog-manage/tag/CreateTag"),
+							...loadings,
+						}),
 					},
 				],
 			},
@@ -71,13 +79,19 @@ const blog = [
 				routes: [
 					{
 						// 4级级路由
-						component: Article,
+						component: Loadable({
+							loader: () => import("../../pages/blog-manage/article"),
+							...loadings,
+						}),
 					},
 					{
 						path: "/create",
 						icon: <BgColorsOutlined />,
 						name: "新建文章",
-						component: CreateTag,
+						component: Loadable({
+							loader: () => import("../../pages/blog-manage/tag/CreateTag"),
+							...loadings,
+						}),
 					},
 				],
 			},

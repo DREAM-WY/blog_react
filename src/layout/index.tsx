@@ -32,13 +32,12 @@ const BlogLayout: React.FC<IProps> = props => {
 			actions.setMenu({ routes: route?.routes })
 		}
 	}, [])
-	if (topMenu.length === 0) return <Spin />
+	if (topMenu.length === 0) return <Spin className="spin-center" />
 	const toggle = () => {
 		setCollapsed(!collapsed)
 	}
 	const handleClose = () => {
 		// 关闭系统设置
-		console.log("关闭")
 		actions.setDrawer(false)
 	}
 

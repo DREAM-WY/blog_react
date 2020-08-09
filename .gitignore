@@ -3,6 +3,8 @@
 /shelf/
 node_modules/
 dist/
+build/
+/build/
 .idea
 .vscode
 /workspace.xml
