@@ -2,7 +2,7 @@
  * @Author: wuyu
  * @Date: 2020-07-18 21:39:30
  * @LastEditors: wuyu
- * @LastEditTime: 2020-08-02 12:15:57
+ * @LastEditTime: 2020-08-10 22:41:15
  * @Description: 面包屑组件
  * @FilePath: /blog_react/src/layout/components/breadcrumb/index.tsx
  */
@@ -46,7 +46,7 @@ const BreadcrumbComponent: React.FC<IProps> = props => {
 						<Item key={url}>
 							{index > 1 && index !== pathSnipents.length - 1 ? (
 								<Link to={url}>
-									<span className="breadcrumb-icon">{breadcrumbUrl.icon}</span>
+									<span className="breadcrumb-icon">{breadcrumbUrl?.icon}</span>
 									{breadcrumbUrl.name}
 								</Link>
 							) : (

@@ -80,7 +80,7 @@ const blog = [
 					{
 						// 4级级路由
 						component: Loadable({
-							loader: () => import("../../pages/blog-manage/article"),
+							loader: () => import("../../components/contextMenu"),
 							...loadings,
 						}),
 					},
